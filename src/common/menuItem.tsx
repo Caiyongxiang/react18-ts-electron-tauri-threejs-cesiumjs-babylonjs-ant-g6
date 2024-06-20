@@ -19,7 +19,7 @@ const items: MenuItem[] = [
     key: 'babylonjs',
     label: 'babylonjs基础学习',
     icon: <AppstoreOutlined />,
-    children: [{ key: '211', label: '第一个3d界面' }]
+    children: [{ key: 'babylonjs/BasicView', label: '第一个3d界面' }]
   }
 ]
 export default items

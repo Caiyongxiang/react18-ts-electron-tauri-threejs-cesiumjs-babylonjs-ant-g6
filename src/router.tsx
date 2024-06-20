@@ -5,13 +5,14 @@ import { useRoutes, Navigate } from 'react-router-dom'
 import OneFirstView from './pages/viewDemo/oneFirstView/index'
 import AboutDetails from './childrenPages/Pages/AboutDetails'
 import AboutTeam from './childrenPages/Pages/AboutTeam'
+import BasicView from './pages/babylonjs/BasicView'
 const routes = [
   {
     path: '/',
-    element: <Navigate to="/viewDome" />
+    element: <Navigate to="/oneFirstView" />
   },
   {
-    path: '/viewDome',
+    path: '/oneFirstView',
     children: [
       {
         index: true,
@@ -24,6 +25,19 @@ const routes = [
       {
         path: 'team',
         element: <AboutTeam />
+      }
+    ]
+  },
+  {
+    path: '/babylonjs',
+    children: [
+      {
+        index: true,
+        element: <BasicView />
+      },
+      {
+        path: 'BasicView',
+        element: <BasicView />
       }
     ]
   },

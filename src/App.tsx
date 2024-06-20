@@ -7,7 +7,7 @@ import type { MenuProps } from 'antd'
 import items from './common/menuItem'
 import './common/three/animate'
 import './App.css'
-import { useThreeSetup, useNavigation } from './common/hook/init'
+import { useNavigation } from './common/hook/init'
 
 const App: React.FC = () => {
   return (
@@ -19,7 +19,6 @@ const App: React.FC = () => {
 
 const MainComponent: React.FC = () => {
   const onClick = useNavigation()
-  useThreeSetup()
   return (
     <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
       <div style={{ height: '100%', width: '15%', float: 'left' }}>
@@ -33,7 +32,7 @@ const MainComponent: React.FC = () => {
           items={items}
         />
       </div>
-      <div className="cyxScene" style={{ height: '100%', width: '85%', float: 'left' }}>
+      <div style={{ height: '100%', width: '85%', float: 'left' }}>
         <AppRouter />
       </div>
     </div>
