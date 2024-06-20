@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import scene from '../../../common/three/scene'
 import THREE from '../../../common/three/three'
 import { Button, Drawer } from 'antd'
-import MonacoEditor from '@monaco-editor/react'
+import Editor from '@monaco-editor/react'
 const oneFirstView = () => {
   const editorRef = useRef(null)
   const aleditorRef = useRef(null)
@@ -96,9 +96,9 @@ animate();`
       <Drawer title="笔记内容" onClose={onClose} open={open} width={600} style={{ overflow: 'hidden', height: 'calc(100%)' }}>
         <div style={{ height: '100%', overflow: 'hidden' }}>
           <p>web三维主要构成元素:场景，相机，渲染器，渲染函数实时执行渲染器构建</p>
-          <MonacoEditor height="500px" defaultLanguage="javascript" defaultValue={code} onMount={handleEditorDidMount} />
+          <Editor height="400px" defaultLanguage="javascript" defaultValue={code} onMount={handleEditorDidMount} />
           <p>模型主要构成元素:几何体，材质</p>
-          <MonacoEditor height="400px" defaultLanguage="javascript" defaultValue={alcode} onMount={alhandleEditorDidMount} />
+          <Editor height="230px" defaultLanguage="javascript" defaultValue={alcode} onMount={alhandleEditorDidMount} />
         </div>
       </Drawer>
     </div>

@@ -7,9 +7,7 @@ import type { MenuProps } from 'antd'
 import items from './common/menuItem'
 import './common/three/animate'
 import './App.css'
-import { fncamera } from './common/three/camera'
-import { rendererfn } from './common/three/renderer'
-import animate from './common/three/animate'
+import { useThreeSetup, useNavigation } from './common/hook/init'
 
 const App: React.FC = () => {
   return (
@@ -20,15 +18,8 @@ const App: React.FC = () => {
 }
 
 const MainComponent: React.FC = () => {
-  const navigate = useNavigate()
-  const onClick: MenuProps['onClick'] = e => {
-    navigate(`/${e.key}`, { replace: false })
-  }
-  useEffect(() => {
-    fncamera()
-    rendererfn()
-    animate()
-  })
+  const onClick = useNavigation()
+  useThreeSetup()
   return (
     <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
       <div style={{ height: '100%', width: '15%', float: 'left' }}>
