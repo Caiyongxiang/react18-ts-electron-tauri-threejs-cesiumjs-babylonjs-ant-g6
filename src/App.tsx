@@ -25,8 +25,8 @@ const MainComponent: React.FC = () => {
         <Menu
           onClick={onClick}
           style={{ width: '100%', height: '100%' }}
-          defaultSelectedKeys={['oneFirstView']}
-          defaultOpenKeys={['viewDemo']}
+          defaultSelectedKeys={['viewDemo/one/oneFirstView']}
+          defaultOpenKeys={['viewDemo', 'viewDemo/one']}
           mode="inline"
           theme="dark"
           items={items}

@@ -98,7 +98,7 @@ animate();`
     }
   })
   return (
-    <div className="cyxScene">
+    <div className="cyxScene" style={{ width: '100%', height: '100%' }}>
       <Button style={{ position: 'fixed', top: 10, right: 10 }} type="primary" onClick={showDrawer}>
         笔记
       </Button>

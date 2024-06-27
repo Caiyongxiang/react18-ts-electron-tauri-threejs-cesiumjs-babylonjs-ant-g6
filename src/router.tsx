@@ -6,25 +6,36 @@ import OneFirstView from './pages/viewDemo/oneFirstView/index'
 import AboutDetails from './childrenPages/Pages/AboutDetails'
 import AboutTeam from './childrenPages/Pages/AboutTeam'
 import BasicView from './pages/babylonjs/BasicView'
+import ImportModel from './pages/babylonjs/ImportModel'
+import Village from './pages/babylonjs/Village'
 const routes = [
   {
     path: '/',
-    element: <Navigate to="/oneFirstView" />
+    element: <Navigate to="/viewDemo/one/oneFirstView" />
   },
   {
-    path: '/oneFirstView',
+    path: '/viewDemo',
     children: [
       {
-        index: true,
-        element: <OneFirstView />
-      },
-      {
-        path: 'details',
-        element: <AboutDetails />
-      },
-      {
-        path: 'team',
-        element: <AboutTeam />
+        path: 'one',
+        children: [
+          {
+            index: true,
+            element: <OneFirstView />
+          },
+          {
+            path: 'oneFirstView',
+            element: <OneFirstView />
+          },
+          {
+            path: 'details',
+            element: <AboutDetails />
+          },
+          {
+            path: 'team',
+            element: <AboutTeam />
+          }
+        ]
       }
     ]
   },
@@ -32,12 +43,25 @@ const routes = [
     path: '/babylonjs',
     children: [
       {
-        index: true,
-        element: <BasicView />
-      },
-      {
-        path: 'BasicView',
-        element: <BasicView />
+        path: 'one',
+        children: [
+          {
+            index: true,
+            element: <BasicView />
+          },
+          {
+            path: 'BasicView',
+            element: <BasicView />
+          },
+          {
+            path: 'ImportModel',
+            element: <ImportModel />
+          },
+          {
+            path: 'Village',
+            element: <Village />
+          }
+        ]
       }
     ]
   },
