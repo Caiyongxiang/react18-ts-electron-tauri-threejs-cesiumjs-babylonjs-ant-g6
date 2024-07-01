@@ -12,7 +12,11 @@ const items: MenuItem[] = [
         key: 'viewDemo/one',
         label: '第一阶段',
         icon: <AppstoreOutlined />,
-        children: [{ key: 'viewDemo/one/oneFirstView', label: '第一个3d界面' }]
+        children: [
+          { key: 'viewDemo/one/oneFirstView', label: '第一个3d界面' },
+          { key: 'viewDemo/one/threejsbasiceditor', label: 'threejs基本配置' },
+          { key: 'viewDemo/one/texturefroggygltfloaderlighttween', label: '基础贴图雾gltf模型加载灯光tween动画' }
+        ]
       }
     ]
   },
@@ -41,7 +45,8 @@ const items: MenuItem[] = [
         children: [
           { key: 'babylonjs/one/BasicView', label: '第一个3d界面' },
           { key: 'babylonjs/one/ImportModel', label: '导入babylon模型' },
-          { key: 'babylonjs/one/Village', label: '村庄' }
+          { key: 'babylonjs/one/Village', label: '村庄' },
+          { key: 'babylonjs/one/ParenChildren', label: '父子模型' }
         ]
       }
     ]

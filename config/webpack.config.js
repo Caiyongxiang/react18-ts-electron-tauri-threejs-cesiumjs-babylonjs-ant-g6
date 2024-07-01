@@ -354,6 +354,17 @@ module.exports = function (webpackEnv) {
               }
             },
             {
+              test: /\.hdr$/,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name].[ext]'
+                  }
+                }
+              ]
+            },
+            {
               test: /\.svg$/,
               use: [
                 {

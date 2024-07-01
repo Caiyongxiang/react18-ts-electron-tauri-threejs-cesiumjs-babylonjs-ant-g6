@@ -2,12 +2,15 @@
 
 import React from 'react'
 import { useRoutes, Navigate } from 'react-router-dom'
-import OneFirstView from './pages/viewDemo/oneFirstView/index'
-import AboutDetails from './childrenPages/Pages/AboutDetails'
+import OneFirstView from './pages/viewDemo/one/oneFirstVIew'
+import Threejsbasiceditor from './pages/viewDemo/one/threejsbasiceditor'
+import Texturefroggygltfloaderlighttween from './pages/viewDemo/one/texturefroggygltfloaderlighttween'
 import AboutTeam from './childrenPages/Pages/AboutTeam'
-import BasicView from './pages/babylonjs/BasicView'
-import ImportModel from './pages/babylonjs/ImportModel'
-import Village from './pages/babylonjs/Village'
+import BasicView from './pages/babylonjs/one/BasicView'
+import ImportModel from './pages/babylonjs/one/ImportModel'
+import Village from './pages/babylonjs/one/Village'
+import ParenChildren from './pages/babylonjs/one/ParentChildren'
+
 const routes = [
   {
     path: '/',
@@ -28,12 +31,12 @@ const routes = [
             element: <OneFirstView />
           },
           {
-            path: 'details',
-            element: <AboutDetails />
+            path: 'threejsbasiceditor',
+            element: <Threejsbasiceditor />
           },
           {
-            path: 'team',
-            element: <AboutTeam />
+            path: 'texturefroggygltfloaderlighttween',
+            element: <Texturefroggygltfloaderlighttween />
           }
         ]
       }
@@ -60,6 +63,10 @@ const routes = [
           {
             path: 'Village',
             element: <Village />
+          },
+          {
+            path: 'ParenChildren',
+            element: <ParenChildren />
           }
         ]
       }
