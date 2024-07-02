@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import scene from '../../../common/three/scene'
 import THREE from '../../../common/three/three'
 import { addControls } from '../../../common/three/controls'
+import { useLocation } from 'react-router-dom'
 import { Button, Drawer } from 'antd'
 import Editor from 'react-monaco-editor'
 import { useThreeSetup } from '../../../common/hook/init'
@@ -361,6 +362,7 @@ const texturefroggygltfloaderlighttween = () => {
     setOpen(false)
   }
   useThreeSetup()
+  const location = useLocation()
   useEffect(() => {
     // 创建GUI
     const gui = new GUI()
@@ -401,6 +403,10 @@ const texturefroggygltfloaderlighttween = () => {
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
     rgbeLoader.load('../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
+      console.log('location', location)
+      if (window.location.pathname !== '/viewDemo/one/texturefroggygltfloaderlighttween') {
+        return
+      }
       // 设置球形贴图
       envMap.mapping = THREE.EquirectangularReflectionMapping
       // 设置环境贴图
@@ -434,6 +440,9 @@ const texturefroggygltfloaderlighttween = () => {
       '../../model/Duck.glb',
       // 加载完成回调
       gltf => {
+        if (window.location.pathname !== '/viewDemo/one/texturefroggygltfloaderlighttween') {
+          return
+        }
         console.log(gltf)
         scene.add(gltf.scene)
       }
@@ -451,6 +460,11 @@ const texturefroggygltfloaderlighttween = () => {
       '../../model/city.glb',
       // 加载完成回调
       gltf => {
+        console.log(location)
+        console.log(window.location)
+        if (window.location.pathname !== '/viewDemo/one/texturefroggygltfloaderlighttween') {
+          return
+        }
         // console.log(gltf);
         scene.add(gltf.scene)
       }
@@ -581,6 +595,10 @@ const texturefroggygltfloaderlighttween = () => {
       }
       scene.fog = null
       scene.clear()
+      // 设置环境贴图
+      scene.background = null
+      // 设置环境贴图
+      scene.environment = null
       gui.destroy()
       if (renderer) {
         // 确保你有一个对renderer的引用

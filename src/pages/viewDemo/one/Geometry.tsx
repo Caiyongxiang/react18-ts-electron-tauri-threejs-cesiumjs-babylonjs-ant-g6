@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import scene from '../../../common/three/scene'
 import THREE from '../../../common/three/three'
 import { addControls } from '../../../common/three/controls'
+import { useLocation } from 'react-router-dom'
 // 导入hdr加载器
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
 // 导入顶点法向量辅助器
@@ -241,6 +242,7 @@ const Geometry = () => {
     setOpen(false)
   }
   useThreeSetup()
+  const location = useLocation()
   useEffect(() => {
     addControls()
     let uvTexture = new THREE.TextureLoader().load('../../texture/uv_grid_opengl.jpg')
@@ -319,6 +321,9 @@ const Geometry = () => {
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
     rgbeLoader.load('../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', (envMap: any) => {
+      if (window.location.pathname !== '/viewDemo/one/Geometry') {
+        return
+      }
       // 设置球形贴图
       envMap.mapping = THREE.EquirectangularReflectionMapping
       // 设置环境贴图
@@ -338,6 +343,9 @@ const Geometry = () => {
       '../../../model/Duck.glb',
       // 加载完成回调
       gltf => {
+        if (window.location.pathname !== '/viewDemo/one/Geometry') {
+          return
+        }
         console.log(gltf)
         scene.add(gltf.scene)
 
@@ -428,6 +436,9 @@ const Geometry = () => {
       '../../../model/city.glb',
       // 加载完成回调
       gltf => {
+        if (window.location.pathname !== '/viewDemo/one/Geometry') {
+          return
+        }
         gltf.scene.traverse((child: any) => {
           if (child.isMesh) {
             let building = child,

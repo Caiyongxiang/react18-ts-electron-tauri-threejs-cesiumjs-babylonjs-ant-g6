@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import scene from '../../../common/three/scene'
 import THREE from '../../../common/three/three'
 import { addControls } from '../../../common/three/controls'
+import { useLocation } from 'react-router-dom'
 import { Button, Drawer } from 'antd'
 import Editor from 'react-monaco-editor'
 import { useThreeSetup } from '../../../common/hook/init'
@@ -392,6 +393,7 @@ const Material = () => {
   }
   useThreeSetup()
   windowinit()
+  const location = useLocation()
   useEffect(() => {
     let controls = addControls()
     // 设置带阻尼的惯性
@@ -474,6 +476,9 @@ const Material = () => {
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
     rgbeLoader.load('../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
+      if (window.location.pathname !== '/viewDemo/one/Material') {
+        return
+      }
       // 设置球形贴图
       envMap.mapping = THREE.EquirectangularReflectionMapping
       // 设置环境贴图
@@ -489,11 +494,11 @@ const Material = () => {
         '../../../model/Duck.glb',
         // 加载完成回调
         gltf => {
+          if (window.location.pathname !== '/viewDemo/one/Material') {
+            return
+          }
           console.log(gltf)
           scene.add(gltf.scene)
-          // 添加环境光
-          const ambientLight = new THREE.AmbientLight(0xffffff, 1)
-          scene.add(ambientLight)
 
           let duckMesh = gltf.scene.getObjectByName('LOD3spShape') as any
           let preMaterial = duckMesh.material
@@ -528,6 +533,9 @@ const Material = () => {
       '../../../model/sword/sword.gltf',
       // 加载完成回调
       gltf => {
+        if (window.location.pathname !== '/viewDemo/one/Material') {
+          return
+        }
         console.log(gltf)
         gltf.scene.position.set(0, -1, 0)
         scene.add(gltf.scene)
@@ -627,6 +635,9 @@ const Material = () => {
       })
     const loader = new THREE.ObjectLoader()
     loader.load('../../../model/damon/scene.json', object => {
+      if (window.location.pathname !== '/viewDemo/one/Material') {
+        return
+      }
       object.position.set(-3, 1, 0)
       scene.add(object)
     })
@@ -637,6 +648,9 @@ const Material = () => {
       '../../../model/mobile/scene.glb',
       // 加载完成回调
       gltf => {
+        if (window.location.pathname !== '/viewDemo/one/Material') {
+          return
+        }
         console.log(gltf)
         gltf.scene.position.set(-6, 1, 0)
         scene.add(gltf.scene)
@@ -649,6 +663,9 @@ const Material = () => {
       '../../../model/liveroom-scene.glb',
       // 加载完成回调
       gltf => {
+        if (window.location.pathname !== '/viewDemo/one/Material') {
+          return
+        }
         scene.add(gltf.scene)
       }
     )
