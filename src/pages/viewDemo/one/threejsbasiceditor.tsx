@@ -4,6 +4,7 @@ import THREE from '../../../common/three/three'
 import { renderer } from '../../../common/three/renderer'
 import asesHelper from '../../../common/three/axesHelper'
 import { addControls } from '../../../common/three/controls'
+import { windowinit } from '../../../common/hook/winodwinit'
 import { Button, Drawer } from 'antd'
 import Editor from 'react-monaco-editor'
 import { useThreeSetup } from '../../../common/hook/init'
@@ -175,6 +176,7 @@ const threejsbasiceditor = () => {
     setOpen(false)
   }
   useThreeSetup()
+  windowinit()
   useEffect(() => {
     // 创建几何体
     const geometry = new THREE.BoxGeometry(1, 1, 1)

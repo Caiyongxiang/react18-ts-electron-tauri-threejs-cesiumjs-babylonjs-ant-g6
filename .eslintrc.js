@@ -24,6 +24,7 @@ module.exports = {
   // add your custom rules here
   //it is base on https://github.com/reactjs/eslint-config-react
   rules: {
+    'react/prop-types': 0,
     'react/react-in-jsx-scope': 'off', // 关闭此规则
     // "prettier/prettier": "error",
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -50,7 +51,7 @@ module.exports = {
     'no-mixed-requires': [0, false], //声明时不能混用声明类型
     'no-negated-in-lhs': 2, //in 操作符的左边不能有!
     'no-nested-ternary': 0, //禁止使用嵌套的三目运算
-    'no-new': 1, //禁止在使用new构造一个实例后不赋值
+    'no-new': 0, //禁止在使用new构造一个实例后不赋值
     'no-new-func': 1, //禁止使用new Function
     'no-new-object': 2, //禁止使用new Object()
     'no-new-require': 2, //禁止使用new require
@@ -61,10 +62,10 @@ module.exports = {
     'no-self-compare': 2, //不能比较自身
     'no-shadow': 2, //外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
     'no-shadow-restricted-names': 2, //严格模式中规定的限制标识符不能作为声明时的变量名使用
-    'no-undef': 1, //不能有未定义的变量
+    'no-undef': 0, //不能有未定义的变量
     'no-undef-init': 2, //变量初始化时不能直接给它赋值为undefined
     'no-unexpected-multiline': 2, //避免多行表达式
-    'no-underscore-dangle': 1, //标识符不能以_开头或结尾
+    'no-underscore-dangle': 0, //标识符不能以_开头或结尾
     'no-unneeded-ternary': 2, //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
     'no-unreachable': 2, //不能有无法执行的代码
     'no-unused-expressions': 2, //禁止无用的表达式
@@ -90,7 +91,7 @@ module.exports = {
     'max-nested-callbacks': [0, 2], //回调嵌套深度
     'max-statements': [0, 10], //函数内最多有几个声明
     'object-shorthand': 0, //强制对象字面量缩写语法
-    'one-var': 1, //连续声明
+    'one-var': 0, //连续声明
     'prefer-const': 0, //首选const
     'prefer-spread': 0, //首选展开运算
     'prefer-reflect': 0, //首选Reflect的方法

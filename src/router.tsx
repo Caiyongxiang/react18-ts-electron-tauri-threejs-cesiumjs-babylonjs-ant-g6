@@ -5,7 +5,8 @@ import { useRoutes, Navigate } from 'react-router-dom'
 import OneFirstView from './pages/viewDemo/one/oneFirstVIew'
 import Threejsbasiceditor from './pages/viewDemo/one/threejsbasiceditor'
 import Texturefroggygltfloaderlighttween from './pages/viewDemo/one/texturefroggygltfloaderlighttween'
-import AboutTeam from './childrenPages/Pages/AboutTeam'
+import Geometry from './pages/viewDemo/one/Geometry'
+import Material from './pages/viewDemo/one/Material'
 import BasicView from './pages/babylonjs/one/BasicView'
 import ImportModel from './pages/babylonjs/one/ImportModel'
 import Village from './pages/babylonjs/one/Village'
@@ -37,6 +38,14 @@ const routes = [
           {
             path: 'texturefroggygltfloaderlighttween',
             element: <Texturefroggygltfloaderlighttween />
+          },
+          {
+            path: 'Geometry',
+            element: <Geometry />
+          },
+          {
+            path: 'Material',
+            element: <Material />
           }
         ]
       }

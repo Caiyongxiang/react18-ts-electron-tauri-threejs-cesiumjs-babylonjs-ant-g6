@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import scene from '../../../common/three/scene'
 import THREE from '../../../common/three/three'
+import { addControls } from '../../../common/three/controls'
 import { Button, Drawer } from 'antd'
 import Editor from 'react-monaco-editor'
 import { useThreeSetup } from '../../../common/hook/init'
 import { renderer } from '../../../common/three/renderer'
+import { windowinit } from '../../../common/hook/winodwinit'
 // 封装一个自定义的Editor组件
 const CustomEditor = ({ height = '200px', language = 'javascript', value = '', theme = 'vs-dark', ...props }) => {
   return <Editor height={height} language={language} value={value} theme={theme} {...props} />
@@ -78,6 +80,7 @@ const oneFirstView = () => {
     setOpen(false)
   }
   useThreeSetup()
+  windowinit()
   useEffect(() => {
     // 创建几何体
     const geometry = new THREE.BoxGeometry(1, 1, 1)
@@ -98,6 +101,7 @@ const oneFirstView = () => {
       if (requestRef.current !== null) {
         cancelAnimationFrame(requestRef.current) // 取消动画帧
       }
+      addControls()
       scene.remove(cube) // 从场景中移除立方体
       geometry.dispose() // 释放几何体资源
       material.dispose() // 释放材质资源
@@ -123,7 +127,7 @@ const oneFirstView = () => {
           <div>
             {codes.map(code => (
               <div key={code.p}>
-                <p>{code.p}</p>
+                <p dangerouslySetInnerHTML={{ __html: code.p }}></p>
                 <CustomEditor
                   key={code.p}
                   options={options}

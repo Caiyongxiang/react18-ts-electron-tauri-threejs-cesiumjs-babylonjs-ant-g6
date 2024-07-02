@@ -16,6 +16,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 // 导入tween
 import * as TWEEN from 'three/examples/jsm/libs/tween.module.js'
+import getGlobalOffsetLeft from '../../../common/three/getGlobalOffsetLeft'
 // 封装一个自定义的Editor组件
 const CustomEditor = ({ height = '200px', language = 'javascript', value = '', theme = 'vs-dark', ...props }) => {
   return <Editor height={height} language={language} value={value} theme={theme} {...props} />
@@ -244,8 +245,28 @@ Linear:<br>
     window.addEventListener('click', event => {
         console.log(event.clientX, event.clientY)
         // 设置鼠标向量的x,y值
-        mouse.x = (event.clientX / (window.innerWidth * 0.85)) * 2 - 1
-        mouse.y = -((event.clientY / window.innerHeight) * 2 - 1)
+          // 设置鼠标向量的x,y值
+      mouse.x =
+        ((event.clientX -
+          Number(
+            getGlobalOffsetLeft(document.getElementsByClassName("cyxScene")[0])
+              .totalOffsetLeft
+          )) /
+          (document.getElementsByClassName("cyxScene")[0] as HTMLElement)
+            .offsetWidth) *
+          2 -
+        1;
+      mouse.y = -(
+        ((event.clientY -
+          Number(
+            getGlobalOffsetLeft(document.getElementsByClassName("cyxScene")[0])
+              .totalOffsetTop
+          )) /
+          (document.getElementsByClassName("cyxScene")[0] as HTMLElement)
+            .offsetHeight) *
+          2 -
+        1
+      );
   
         // console.log(mouse.x, mouse.y);
         // 通过摄像机和鼠标位置更新射线
@@ -360,18 +381,6 @@ const texturefroggygltfloaderlighttween = () => {
     // 高光贴图
     let specularMap = textureLoader.load('../../../texture/watercover/CityNewYork002_GLOSS_1K.jpg')
     addControls()
-    // rgbeLoader 加载hdr贴图
-    let rgbeLoader = new RGBELoader()
-    rgbeLoader.load('../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
-      // 设置球形贴图
-      envMap.mapping = THREE.EquirectangularReflectionMapping
-      // 设置环境贴图
-      scene.background = envMap
-      // 设置环境贴图
-      scene.environment = envMap
-      // 设置plane的环境贴图
-      planeMaterial.envMap = envMap
-    })
     let planeGeometry = new THREE.PlaneGeometry(1, 1)
     let planeMaterial = new THREE.MeshBasicMaterial({
       color: 0xffffff,
@@ -389,6 +398,19 @@ const texturefroggygltfloaderlighttween = () => {
       specularMap: specularMap,
       reflectivity: 0.5
     })
+    // rgbeLoader 加载hdr贴图
+    let rgbeLoader = new RGBELoader()
+    rgbeLoader.load('../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
+      // 设置球形贴图
+      envMap.mapping = THREE.EquirectangularReflectionMapping
+      // 设置环境贴图
+      scene.background = envMap
+      // 设置环境贴图
+      scene.environment = envMap
+      // 设置plane的环境贴图
+      planeMaterial.envMap = envMap
+    })
+
     // planeMaterial.map = texture;
     let plane = new THREE.Mesh(planeGeometry, planeMaterial)
     plane.position.set(3, 3, 0)
@@ -469,8 +491,17 @@ const texturefroggygltfloaderlighttween = () => {
     window.addEventListener('click', event => {
       console.log(event.clientX, event.clientY)
       // 设置鼠标向量的x,y值
-      mouse.x = (event.clientX / (window.innerWidth * 0.85)) * 2 - 1
-      mouse.y = -((event.clientY / window.innerHeight) * 2 - 1)
+      mouse.x =
+        ((event.clientX - Number(getGlobalOffsetLeft(document.getElementsByClassName('cyxScene')[0]).totalOffsetLeft)) /
+          (document.getElementsByClassName('cyxScene')[0] as HTMLElement).offsetWidth) *
+          2 -
+        1
+      mouse.y = -(
+        ((event.clientY - Number(getGlobalOffsetLeft(document.getElementsByClassName('cyxScene')[0]).totalOffsetTop)) /
+          (document.getElementsByClassName('cyxScene')[0] as HTMLElement).offsetHeight) *
+          2 -
+        1
+      )
 
       // console.log(mouse.x, mouse.y);
       // 通过摄像机和鼠标位置更新射线
@@ -548,9 +579,9 @@ const texturefroggygltfloaderlighttween = () => {
       if (requestRef.current !== null) {
         cancelAnimationFrame(requestRef.current) // 取消动画帧
       }
-
+      scene.fog = null
       scene.clear()
-
+      gui.destroy()
       if (renderer) {
         // 确保你有一个对renderer的引用
         renderer.dispose()

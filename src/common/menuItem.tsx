@@ -15,7 +15,9 @@ const items: MenuItem[] = [
         children: [
           { key: 'viewDemo/one/oneFirstView', label: '第一个3d界面' },
           { key: 'viewDemo/one/threejsbasiceditor', label: 'threejs基本配置' },
-          { key: 'viewDemo/one/texturefroggygltfloaderlighttween', label: '基础贴图雾gltf模型加载灯光tween动画' }
+          { key: 'viewDemo/one/texturefroggygltfloaderlighttween', label: '基础贴图雾gltf模型加载灯光tween动画' },
+          { key: 'viewDemo/one/Geometry', label: 'Geometry' },
+          { key: 'viewDemo/one/Material', label: '材质' }
         ]
       }
     ]
