@@ -749,6 +749,7 @@ const Texture = () => {
       gui.destroy()
       scene.background = null
       scene.environment = null
+      renderer.clippingPlanes = []
       if (renderer) {
         // 确保你有一个对renderer的引用
         renderer.dispose()

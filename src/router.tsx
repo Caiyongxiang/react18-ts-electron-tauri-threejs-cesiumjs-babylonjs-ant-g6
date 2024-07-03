@@ -8,6 +8,8 @@ import Texturefroggygltfloaderlighttween from './pages/viewDemo/one/texturefrogg
 import Geometry from './pages/viewDemo/one/Geometry'
 import Material from './pages/viewDemo/one/Material'
 import Texture from './pages/viewDemo/one/Texture'
+import Light from './pages/viewDemo/one/light'
+import EasyEditor from './pages/viewDemo/one/easyEditor'
 import BasicView from './pages/babylonjs/one/BasicView'
 import ImportModel from './pages/babylonjs/one/ImportModel'
 import Village from './pages/babylonjs/one/Village'
@@ -51,6 +53,14 @@ const routes = [
           {
             path: 'Texture',
             element: <Texture />
+          },
+          {
+            path: 'light',
+            element: <Light />
+          },
+          {
+            path: 'easyEditor',
+            element: <EasyEditor />
           }
         ]
       }

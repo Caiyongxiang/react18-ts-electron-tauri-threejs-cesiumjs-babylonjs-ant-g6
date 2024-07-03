@@ -88,25 +88,25 @@ const oneFirstView = () => {
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
     // 创建网格
     const cube = new THREE.Mesh(geometry, material)
-
     // 将网格添加到场景中
     scene.add(cube)
+
     function nowanimate() {
       requestRef.current = requestAnimationFrame(nowanimate) // 更新 ref 的当前值
       cube.rotation.x += 0.01
       cube.rotation.y += 0.01
     }
     nowanimate()
+    addControls()
     return () => {
       if (requestRef.current !== null) {
         cancelAnimationFrame(requestRef.current) // 取消动画帧
       }
-      addControls()
+
       scene.remove(cube) // 从场景中移除立方体
       geometry.dispose() // 释放几何体资源
       material.dispose() // 释放材质资源
       scene.clear()
-
       if (renderer) {
         // 确保你有一个对renderer的引用
         renderer.dispose()
@@ -116,7 +116,7 @@ const oneFirstView = () => {
         }
       }
     }
-  }, [])
+  }, []) // 依赖项数组为空，确保仅在首次渲染后执行
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <Button style={{ position: 'fixed', bottom: 10, right: 10 }} type="primary" onClick={showDrawer}>
