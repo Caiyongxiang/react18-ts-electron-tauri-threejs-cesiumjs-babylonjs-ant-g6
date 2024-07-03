@@ -119,10 +119,17 @@ const oneFirstView = () => {
   }, [])
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <Button style={{ position: 'fixed', top: 10, right: 10 }} type="primary" onClick={showDrawer}>
+      <Button style={{ position: 'fixed', bottom: 10, right: 10 }} type="primary" onClick={showDrawer}>
         笔记
       </Button>
-      <Drawer title="笔记内容" onClose={onClose} open={open} width={600} style={{ overflow: 'hidden', height: 'calc(100%)' }}>
+      <Drawer
+        placement="left"
+        title="笔记内容"
+        onClose={onClose}
+        open={open}
+        width={600}
+        style={{ overflow: 'hidden', height: 'calc(100%)' }}
+      >
         <div style={{ height: '100%', overflow: 'auto' }}>
           <div>
             {codes.map(code => (

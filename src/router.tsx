@@ -7,6 +7,7 @@ import Threejsbasiceditor from './pages/viewDemo/one/threejsbasiceditor'
 import Texturefroggygltfloaderlighttween from './pages/viewDemo/one/texturefroggygltfloaderlighttween'
 import Geometry from './pages/viewDemo/one/Geometry'
 import Material from './pages/viewDemo/one/Material'
+import Texture from './pages/viewDemo/one/Texture'
 import BasicView from './pages/babylonjs/one/BasicView'
 import ImportModel from './pages/babylonjs/one/ImportModel'
 import Village from './pages/babylonjs/one/Village'
@@ -46,6 +47,10 @@ const routes = [
           {
             path: 'Material',
             element: <Material />
+          },
+          {
+            path: 'Texture',
+            element: <Texture />
           }
         ]
       }
