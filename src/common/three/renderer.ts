@@ -13,4 +13,5 @@ function rendererfn() {
 renderer.shadowMap.enabled = true
 renderer.toneMapping = THREE.ReinhardToneMapping
 renderer.toneMappingExposure = 1
+
 export { rendererfn, renderer }

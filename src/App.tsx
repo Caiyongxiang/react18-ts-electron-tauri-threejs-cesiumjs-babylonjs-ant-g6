@@ -21,7 +21,7 @@ const MainComponent: React.FC = () => {
   const onClick = useNavigation()
   return (
     <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
-      <div style={{ height: '100%', width: '15%', float: 'left' }}>
+      <div style={{ height: '100%', width: '15%', float: 'left', overflow: 'auto' }}>
         <Menu
           onClick={onClick}
           style={{ width: '100%', height: '100%' }}

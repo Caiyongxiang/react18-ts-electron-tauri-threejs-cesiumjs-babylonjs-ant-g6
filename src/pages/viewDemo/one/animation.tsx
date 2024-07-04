@@ -361,6 +361,7 @@ const oneFirstView = () => {
     })
     const cube = new THREE.Mesh(geometry, material)
     cube.name = 'cube'
+    console.log(cube)
     scene.add(cube)
 
     // 创建位移动画

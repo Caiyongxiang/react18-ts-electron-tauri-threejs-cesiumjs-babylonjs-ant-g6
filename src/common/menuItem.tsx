@@ -21,7 +21,8 @@ const items: MenuItem[] = [
           { key: 'viewDemo/one/Texture', label: 'Texture' },
           { key: 'viewDemo/one/light', label: 'light' },
           { key: 'viewDemo/one/easyEditor', label: 'easyEditor' },
-          { key: 'viewDemo/one/animation', label: 'animation' }
+          { key: 'viewDemo/one/animation', label: 'animation' },
+          { key: 'viewDemo/one/points', label: 'points' }
         ]
       }
     ]

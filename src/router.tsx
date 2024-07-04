@@ -11,6 +11,7 @@ import Texture from './pages/viewDemo/one/Texture'
 import Light from './pages/viewDemo/one/light'
 import EasyEditor from './pages/viewDemo/one/easyEditor'
 import Animation from './pages/viewDemo/one/animation'
+import Points from './pages/viewDemo/one/Points'
 import BasicView from './pages/babylonjs/one/BasicView'
 import ImportModel from './pages/babylonjs/one/ImportModel'
 import Village from './pages/babylonjs/one/Village'
@@ -66,6 +67,10 @@ const routes = [
           {
             path: 'animation',
             element: <Animation />
+          },
+          {
+            path: 'points',
+            element: <Points />
           }
         ]
       }
