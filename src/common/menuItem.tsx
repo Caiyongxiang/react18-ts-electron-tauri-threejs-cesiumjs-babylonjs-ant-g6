@@ -22,7 +22,8 @@ const items: MenuItem[] = [
           { key: 'viewDemo/one/light', label: 'light' },
           { key: 'viewDemo/one/easyEditor', label: 'easyEditor' },
           { key: 'viewDemo/one/animation', label: 'animation' },
-          { key: 'viewDemo/one/points', label: 'points' }
+          { key: 'viewDemo/one/points', label: 'points' },
+          { key: 'viewDemo/one/officialWebsite', label: '功能整合' }
         ]
       }
     ]

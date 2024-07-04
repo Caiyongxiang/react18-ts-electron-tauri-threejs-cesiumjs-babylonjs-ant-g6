@@ -134,7 +134,7 @@ vertexColors: true <br>
     theme: 'vs-dark'
   }
 ]
-const oneFirstView = () => {
+const Points = () => {
   const requestRef = useRef<number | null>(null)
   const [open, setOpen] = useState(false)
   const options = {
@@ -231,6 +231,7 @@ const oneFirstView = () => {
     }
     nowanimate()
     addControls()
+
     return () => {
       if (requestRef.current !== null) {
         cancelAnimationFrame(requestRef.current) // 取消动画帧
@@ -286,4 +287,4 @@ const oneFirstView = () => {
   )
 }
 
-export default oneFirstView
+export default Points
