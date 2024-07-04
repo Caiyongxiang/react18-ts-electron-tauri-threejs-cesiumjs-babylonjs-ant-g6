@@ -253,7 +253,7 @@ scene.add(pointLightHelper);`,
 
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
-    rgbeLoader.load('../../../texture/Video_Copilot-Back Light_0007_4k.hdr', envMap => {
+    rgbeLoader.load('/texture/Video_Copilot-Back Light_0007_4k.hdr', envMap => {
       // 设置球形贴图
       envMap.mapping = THREE.EquirectangularReflectionMapping
       // envMap.mapping = THREE.EquirectangularRefractionMapping;
@@ -393,7 +393,7 @@ const light = () => {
     // renderer.toneMappingExposure = 1
     // // rgbeLoader 加载hdr贴图
     // let rgbeLoader = new RGBELoader()
-    // rgbeLoader.load('../../../texture/Video_Copilot-Back Light_0007_4k.hdr', envMap => {
+    // rgbeLoader.load('/texture/Video_Copilot-Back Light_0007_4k.hdr', envMap => {
     // if (window.location.pathname !== '/viewDemo/one/light') {
     //     return
     //   }
@@ -409,7 +409,7 @@ const light = () => {
     // const material1 = new THREE.MeshPhysicalMaterial({
     //   color: 0xccccff
     // })
-    // let alphaTexture = new THREE.TextureLoader().load('../../../texture/16.jpg')
+    // let alphaTexture = new THREE.TextureLoader().load('/texture/16.jpg')
     // const torusKnot = new THREE.Mesh(geometry1, material1)
     // torusKnot.position.set(4, 1, 0)
     // torusKnot.receiveShadow = true
@@ -564,7 +564,7 @@ const light = () => {
 
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
-    rgbeLoader.load('../../../texture/Video_Copilot-Back Light_0007_4k.hdr', envMap => {
+    rgbeLoader.load('/texture/Video_Copilot-Back Light_0007_4k.hdr', envMap => {
       if (window.location.pathname !== '/viewDemo/one/light') {
         return
       }

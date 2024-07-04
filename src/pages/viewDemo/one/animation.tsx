@@ -58,7 +58,7 @@ currentAction.crossFadeTo(walkAction, 0.5, true):<br>
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      '../../../model/hilda_regular_00.glb',
+      '/model/hilda_regular_00.glb',
       // 加载完成回调
       gltf => {
         scene.add(gltf.scene)
@@ -241,7 +241,7 @@ const oneFirstView = () => {
     nowanimate()
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
-    rgbeLoader.load('../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
+    rgbeLoader.load('/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
       if (window.location.pathname !== '/viewDemo/one/animation') {
         return
       }
@@ -273,7 +273,7 @@ const oneFirstView = () => {
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      '../../../model/hilda_regular_00.glb',
+      '/model/hilda_regular_00.glb',
       // 加载完成回调
       gltf => {
         if (window.location.pathname !== '/viewDemo/one/animation') {

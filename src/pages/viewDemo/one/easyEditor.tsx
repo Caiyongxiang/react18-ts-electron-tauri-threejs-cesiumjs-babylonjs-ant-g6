@@ -173,7 +173,7 @@ const easyEditor = () => {
     scene.add(gridHelper)
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
-    rgbeLoader.load('../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
+    rgbeLoader.load('/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
       if (window.location.pathname !== '/viewDemo/one/easyEditor') {
         return
       }
@@ -192,13 +192,13 @@ const easyEditor = () => {
       // 实例化加载器draco
       dracoLoader = new DRACOLoader()
     // 设置draco路径
-    dracoLoader.setDecoderPath('../../draco/')
+    dracoLoader.setDecoderPath('/draco/')
     // 设置gltf加载器draco解码器
     gltfLoader.setDRACOLoader(dracoLoader)
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      '../../../model/house/house-scene-min.glb',
+      '/model/house/house-scene-min.glb',
       // 加载完成回调
       gltf => {
         if (window.location.pathname !== '/viewDemo/one/easyEditor') {
@@ -282,11 +282,11 @@ const easyEditor = () => {
     let meshList: any = [
         {
           name: '盆栽',
-          path: '../../../model/house/plants-min.glb'
+          path: '/model/house/plants-min.glb'
         },
         {
           name: '单人沙发',
-          path: '../../../model/house/sofa_chair_min.glb'
+          path: '/model/house/sofa_chair_min.glb'
         }
       ],
       folderAddMehs = gui.addFolder('添加物体'),

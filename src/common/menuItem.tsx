@@ -23,8 +23,16 @@ const items: MenuItem[] = [
           { key: 'viewDemo/one/easyEditor', label: 'easyEditor' },
           { key: 'viewDemo/one/animation', label: 'animation' },
           { key: 'viewDemo/one/points', label: 'points' },
-          { key: 'viewDemo/one/officialWebsite', label: '功能整合' }
+          { key: 'viewDemo/one/officialWebsite', label: '功能整合' },
+          { key: 'viewDemo/one/CANNONView', label: '物理引擎' },
+          { key: 'viewDemo/one/WebGlDemo', label: 'WebGlDemo' }
         ]
+      },
+      {
+        key: 'viewDemo/two',
+        label: '第二阶段',
+        icon: <AppstoreOutlined />,
+        children: [{ key: 'viewDemo/one/oneShader', label: '第一个着色器界面' }]
       }
     ]
   },

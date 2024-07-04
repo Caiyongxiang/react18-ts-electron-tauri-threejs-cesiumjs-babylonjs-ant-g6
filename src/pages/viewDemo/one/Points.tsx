@@ -55,7 +55,7 @@ vertexColors: true <br>
     language: 'javascript',
     value: `
     const textureLoader = new THREE.TextureLoader()
-    const particlesTexture = textureLoader.load('../../../texture/particles/1.png')
+    const particlesTexture = textureLoader.load('/texture/particles/1.png')
     scene.add(axesHelper)
     const params = {
       count: 10000,
@@ -151,7 +151,7 @@ const Points = () => {
   windowinit()
   useEffect(() => {
     const textureLoader = new THREE.TextureLoader()
-    const particlesTexture = textureLoader.load('../../../texture/particles/1.png')
+    const particlesTexture = textureLoader.load('/texture/particles/1.png')
     scene.add(axesHelper)
     const params = {
       count: 10000,

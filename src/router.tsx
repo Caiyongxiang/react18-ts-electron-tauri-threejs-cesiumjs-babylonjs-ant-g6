@@ -1,6 +1,6 @@
 // src/router.tsx
 
-import React from 'react'
+import React, { Children } from 'react'
 import { useRoutes, Navigate } from 'react-router-dom'
 import OneFirstView from './pages/viewDemo/one/oneFirstVIew'
 import Threejsbasiceditor from './pages/viewDemo/one/threejsbasiceditor'
@@ -13,6 +13,9 @@ import EasyEditor from './pages/viewDemo/one/easyEditor'
 import Animation from './pages/viewDemo/one/animation'
 import Points from './pages/viewDemo/one/Points'
 import OfficialWebsite from './pages/viewDemo/one/officialWebsite'
+import CANNONView from './pages/viewDemo/one/CANNONView'
+import WebGlDemo from './pages/viewDemo/one/WebGlDemo'
+import OneShader from './pages/viewDemo/two/oneShader'
 import BasicView from './pages/babylonjs/one/BasicView'
 import ImportModel from './pages/babylonjs/one/ImportModel'
 import Village from './pages/babylonjs/one/Village'
@@ -76,6 +79,23 @@ const routes = [
           {
             path: 'officialWebsite',
             element: <OfficialWebsite />
+          },
+          {
+            path: 'CANNONView',
+            element: <CANNONView />
+          },
+          {
+            path: 'WebGlDemo',
+            element: <WebGlDemo />
+          }
+        ]
+      },
+      {
+        path: 'two',
+        Children: [
+          {
+            path: 'oneShader',
+            element: <OneShader />
           }
         ]
       }
