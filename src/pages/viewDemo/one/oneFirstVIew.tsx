@@ -106,6 +106,9 @@ const oneFirstView = () => {
       scene.remove(cube) // 从场景中移除立方体
       geometry.dispose() // 释放几何体资源
       material.dispose() // 释放材质资源
+      scene.background = null
+      // 设置环境贴图
+      scene.environment = null
       scene.clear()
       if (renderer) {
         // 确保你有一个对renderer的引用
