@@ -66,7 +66,7 @@ animate();`,
     theme: 'vs-dark'
   }
 ]
-const oneFirstView = () => {
+const oneShader = () => {
   const requestRef = useRef<number | null>(null)
   const [open, setOpen] = useState(false)
   const options = {
@@ -156,4 +156,4 @@ const oneFirstView = () => {
   )
 }
 
-export default oneFirstView
+export default oneShader
